@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "checkJs": false,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "rootDir": ".",
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types"
+    ]
+  },
+  "extends": "expo/tsconfig.base",
+  "include": ["./**/*.ts", "./**/*.tsx", "./**/*.png"],
+  "exclude": ["node_modules"]
+}

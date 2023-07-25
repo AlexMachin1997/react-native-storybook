@@ -1,0 +1,67 @@
+{
+	"plugins": ["react-native", "prettier", "react-hooks", "react"],
+	"extends": [
+		"plugin:react-native/all",
+		"airbnb",
+		"prettier",
+		"prettier/react",
+		"eslint:recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:react/recommended",
+		"plugin:import/react",
+		"plugin:@typescript-eslint/recommended"
+		// "plugin:react-native-a11y/android",
+		// "plugin:react-native-a11y/ios"
+	],
+
+	// Any screens here need fixing at some point...
+	"ignorePatterns": ["src/lib/utils/theme_colours.ts", "src/pages/Questionnaire.tsx", "./storybook"],
+	"rules": {
+		"react/destructuring-assignment": 0,
+		/*
+		  ************************************************************************************************
+		  Description of why these are turned off for the project:
+		  ************************************************************************************************
+		  - In React 17 a new runtime JSX transform was created, this will allow us to safely ignore the React import when it's not required.
+		  - When not using useEffect, useCallback, useState etc we no longer need "React" to be scope if React is required then the runtime transform
+		    will automatically add it (Smart right!)
+		  - For more information visit https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+		  */
+		"react/jsx-uses-react": "off",
+		"react/react-in-jsx-scope": "off",
+		"@typescript-eslint/no-var-requires": 0,
+		"react/jsx-props-no-spreading": 0,
+		"react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"ts": "never",
+				"tsx": "never"
+			}
+		],
+		"import/prefer-default-export": "off",
+		"camelcase": "off",
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "error",
+		"react-native/no-inline-styles": "off",
+		"react/require-default-props": "off",
+		"react/prop-types": "off"
+	},
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2020,
+		"sourceType": "module"
+	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx"]
+			},
+			"typescript": {}
+		}
+	}
+}
